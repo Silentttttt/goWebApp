@@ -31,5 +31,5 @@ func Static(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "404 page not found", 404)
 		return
 	}
-	http.ServeFile(w, r, r.URL.Path[1:])
+	http.ServeFile(w, r, "bitlove" + r.URL.Path[0:])
 }

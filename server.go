@@ -16,7 +16,11 @@ func main() {
 	//	TODO: add a route package
 	http.HandleFunc("/", controller.IndexHandler)
 	http.HandleFunc("/dist/", controller.Static)
-	err := http.ListenAndServe("127.0.0.1:80", nil)
+	http.HandleFunc("/examples/", controller.Static)
+	http.HandleFunc("/vendors/", controller.Static)
+	http.HandleFunc("/jquery.fullPage.css", controller.Static)
+	http.HandleFunc("/jquery.fullPage.js", controller.Static)
+	err := http.ListenAndServe(":80", nil)
 	if err != nil {
 		log.Fatal(err)
 	}
